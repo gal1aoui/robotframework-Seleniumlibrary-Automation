@@ -24,7 +24,7 @@ LoginTry
     #click element   xpath://*[@id="aside"]/section/div/div[3]/div[3]/div/button
     # ${var}  Get Element Count    xpath://*[@id="aside"]/section/div/div[3]/div[3]/div/button
     ${present}    Get Element Count    ${var}
-    Run Keyword If  ${present}  > 0     log to console  "Successfull"   ELSE    log to console  "Failed"    END
+    Run Keyword If  ${present} != 0     log to console  "Successfull"   ELSE    log to console  "Failed"    END
     # input text  id:email    admin@espacebazar.com
     # input text  id:password     Espacebazar2022
     # click element   xpath://*[@id="__next"]/div/main/div/div/form/div[5]/button

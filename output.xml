@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.6.4 on win32)" generated="20220722 09:57:04.876" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.6.4 on win32)" generated="20220722 10:04:15.926" rpa="false" schemaversion="3">
 <suite id="s1" name="Test" source="C:\Users\admine\Desktop\python Bot\Test.robot">
 <test id="s1-t1" name="LoginTest" line="12">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${url}</arg>
 <arg>${browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220722 09:57:05.286" level="INFO">Opening browser 'chrome' to base url 'https://www.leboncoin.fr/caravaning/2190632280.htm'.</msg>
-<status status="PASS" starttime="20220722 09:57:05.286" endtime="20220722 09:57:26.314"/>
+<msg timestamp="20220722 10:04:16.343" level="INFO">Opening browser 'chrome' to base url 'https://www.leboncoin.fr/caravaning/2190632280.htm'.</msg>
+<status status="PASS" starttime="20220722 10:04:16.342" endtime="20220722 10:04:36.619"/>
 </kw>
 <kw name="LoginTry">
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>//button[@id="didomi-notice-agree-button"]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220722 09:57:26.318" level="INFO">Clicking element '//button[@id="didomi-notice-agree-button"]'.</msg>
-<status status="PASS" starttime="20220722 09:57:26.316" endtime="20220722 09:57:26.766"/>
+<msg timestamp="20220722 10:04:36.622" level="INFO">Clicking element '//button[@id="didomi-notice-agree-button"]'.</msg>
+<status status="PASS" starttime="20220722 10:04:36.620" endtime="20220722 10:04:37.032"/>
 </kw>
 <kw name="Get Element Count" library="SeleniumLibrary">
 <var>${present}</var>
 <arg>${var}</arg>
 <doc>Returns the number of elements matching ``locator``.</doc>
-<msg timestamp="20220722 09:57:26.804" level="INFO">${present} = 0</msg>
-<status status="PASS" starttime="20220722 09:57:26.766" endtime="20220722 09:57:26.804"/>
+<msg timestamp="20220722 10:04:37.075" level="INFO">${present} = 0</msg>
+<status status="PASS" starttime="20220722 10:04:37.032" endtime="20220722 10:04:37.075"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
-<arg>${present}</arg>
-<arg>&gt; 0</arg>
+<arg>${present} != 0</arg>
 <arg>log to console</arg>
 <arg>"Successfull"</arg>
 <arg>ELSE</arg>
@@ -37,41 +36,41 @@
 <arg>"Failed"</arg>
 <arg>END</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220722 09:57:26.805" endtime="20220722 09:57:26.805"/>
+<status status="PASS" starttime="20220722 10:04:37.077" endtime="20220722 10:04:37.077"/>
 </kw>
-<status status="PASS" starttime="20220722 09:57:26.804" endtime="20220722 09:57:26.805"/>
+<status status="PASS" starttime="20220722 10:04:37.076" endtime="20220722 10:04:37.077"/>
 </kw>
-<status status="PASS" starttime="20220722 09:57:26.315" endtime="20220722 09:57:26.806"/>
+<status status="PASS" starttime="20220722 10:04:36.619" endtime="20220722 10:04:37.078"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>5s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20220722 09:57:31.807" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20220722 09:57:26.806" endtime="20220722 09:57:31.807"/>
+<msg timestamp="20220722 10:04:42.079" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20220722 10:04:37.078" endtime="20220722 10:04:42.079"/>
 </kw>
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20220722 09:57:31.809" endtime="20220722 09:57:35.755"/>
+<status status="PASS" starttime="20220722 10:04:42.080" endtime="20220722 10:04:44.419"/>
 </kw>
-<status status="PASS" starttime="20220722 09:57:05.283" endtime="20220722 09:57:35.757"/>
+<status status="PASS" starttime="20220722 10:04:16.340" endtime="20220722 10:04:44.419"/>
 </test>
 <kw name="Run Keyword And Ignore Error" library="BuiltIn" type="TEARDOWN">
 <arg>Suite shutdown</arg>
 <doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
 <kw name="Suite shutdown">
 <kw name="Erro1234r # This should fail due to no keyword named Erro1234r, it skips this and closes all browsers">
-<msg timestamp="20220722 09:57:35.767" level="FAIL">No keyword with name 'Erro1234r # This should fail due to no keyword named Erro1234r, it skips this and closes all browsers' found.</msg>
-<status status="FAIL" starttime="20220722 09:57:35.767" endtime="20220722 09:57:35.767"/>
+<msg timestamp="20220722 10:04:44.434" level="FAIL">No keyword with name 'Erro1234r # This should fail due to no keyword named Erro1234r, it skips this and closes all browsers' found.</msg>
+<status status="FAIL" starttime="20220722 10:04:44.434" endtime="20220722 10:04:44.434"/>
 </kw>
 <kw name="Close All Browsers" library="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20220722 09:57:35.767" endtime="20220722 09:57:35.767"/>
+<status status="PASS" starttime="20220722 10:04:44.434" endtime="20220722 10:04:44.434"/>
 </kw>
-<status status="FAIL" starttime="20220722 09:57:35.759" endtime="20220722 09:57:35.768"/>
+<status status="FAIL" starttime="20220722 10:04:44.421" endtime="20220722 10:04:44.434"/>
 </kw>
-<status status="PASS" starttime="20220722 09:57:35.759" endtime="20220722 09:57:35.768"/>
+<status status="PASS" starttime="20220722 10:04:44.421" endtime="20220722 10:04:44.434"/>
 </kw>
-<status status="PASS" starttime="20220722 09:57:04.878" endtime="20220722 09:57:35.768"/>
+<status status="PASS" starttime="20220722 10:04:15.931" endtime="20220722 10:04:44.434"/>
 </suite>
 <statistics>
 <total>
