@@ -1,0 +1,13 @@
+1658402137513	geckodriver	INFO	Listening on 127.0.0.1:51619
+1658402140551	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\admine\\AppData\\Local\\Temp\\rust_mozprofileUSVlXX"
+1658402141108	Marionette	INFO	Marionette enabled
+1658402141114	Marionette	INFO	Listening on port 51631
+Read port: 51631
+1658402141455	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\admine\\AppData\\Local\\Temp\\rust_mozprofileUSVlXX\\search.json.mozlz4", (void 0)))
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+JavaScript error: resource://activity-stream/lib/ActivityStreamPrefs.jsm, line 27: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]
+1658402145945	Marionette	INFO	Stopped listening on port 51631
+console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
