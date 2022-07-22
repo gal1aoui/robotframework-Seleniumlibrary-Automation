@@ -1,76 +1,516 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.6.4 on win32)" generated="20220722 10:04:15.926" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.6.4 on win32)" generated="20220722 12:14:05.049" rpa="false" schemaversion="3">
 <suite id="s1" name="Test" source="C:\Users\admine\Desktop\python Bot\Test.robot">
 <test id="s1-t1" name="LoginTest" line="12">
 <kw name="Open Browser" library="SeleniumLibrary">
-<arg>${url}</arg>
+<arg>https://www.leboncoin.fr/voitures/2194364218.htm</arg>
 <arg>${browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220722 10:04:16.343" level="INFO">Opening browser 'chrome' to base url 'https://www.leboncoin.fr/caravaning/2190632280.htm'.</msg>
-<status status="PASS" starttime="20220722 10:04:16.342" endtime="20220722 10:04:36.619"/>
+<msg timestamp="20220722 12:14:05.491" level="INFO">Opening browser 'chrome' to base url 'https://www.leboncoin.fr/voitures/2194364218.htm'.</msg>
+<status status="PASS" starttime="20220722 12:14:05.491" endtime="20220722 12:14:27.344"/>
 </kw>
-<kw name="LoginTry">
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>//button[@id="didomi-notice-agree-button"]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220722 10:04:36.622" level="INFO">Clicking element '//button[@id="didomi-notice-agree-button"]'.</msg>
-<status status="PASS" starttime="20220722 10:04:36.620" endtime="20220722 10:04:37.032"/>
+<msg timestamp="20220722 12:14:27.347" level="INFO">Clicking element '//button[@id="didomi-notice-agree-button"]'.</msg>
+<status status="PASS" starttime="20220722 12:14:27.345" endtime="20220722 12:14:27.756"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${var}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 12:14:27.769" level="INFO">Clicking element '//button[@title="voir le numéro"]'.</msg>
+<status status="PASS" starttime="20220722 12:14:27.767" endtime="20220722 12:14:34.363"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:email</arg>
+<arg>admin@espacebazar.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220722 12:14:34.365" level="INFO">Typing text 'admin@espacebazar.com' into text field 'id:email'.</msg>
+<status status="PASS" starttime="20220722 12:14:34.364" endtime="20220722 12:14:34.536"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:password</arg>
+<arg>Espacebazar2022</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220722 12:14:34.537" level="INFO">Typing text 'Espacebazar2022' into text field 'id:password'.</msg>
+<status status="PASS" starttime="20220722 12:14:34.537" endtime="20220722 12:14:34.675"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://*[@id="__next"]/div/main/div/div/form/div[5]/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 12:14:34.676" level="INFO">Clicking element 'xpath://*[@id="__next"]/div/main/div/div/form/div[5]/button'.</msg>
+<status status="PASS" starttime="20220722 12:14:34.676" endtime="20220722 12:14:34.773"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${var}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220722 12:14:34.784" endtime="20220722 12:14:53.319"/>
+</kw>
+<kw name="ReadLinks">
+<kw name="Get File" library="OperatingSystem">
+<var>${File}</var>
+<arg>contacts.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20220722 12:14:53.321" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\admine\Desktop\python Bot\contacts.txt"&gt;C:\Users\admine\Desktop\python Bot\contacts.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20220722 12:14:53.322" level="INFO">${File} = https://www.leboncoin.fr/voitures/2194403929.htm
+https://www.leboncoin.fr/voitures/2194411910.htm
+https://www.leboncoin.fr/voitures/2166138099.htm
+https://www.leboncoin.fr/voitures/2164998143.htm
+http...</msg>
+<status status="PASS" starttime="20220722 12:14:53.321" endtime="20220722 12:14:53.322"/>
+</kw>
+<kw name="Split To Lines" library="String">
+<var>@{list}</var>
+<arg>${File}</arg>
+<doc>Splits the given string to lines.</doc>
+<msg timestamp="20220722 12:14:53.323" level="INFO">7 lines returned</msg>
+<msg timestamp="20220722 12:14:53.323" level="INFO">@{list} = [ https://www.leboncoin.fr/voitures/2194403929.htm | https://www.leboncoin.fr/voitures/2194411910.htm | https://www.leboncoin.fr/voitures/2166138099.htm | https://www.leboncoin.fr/voitures/2164998143....</msg>
+<status status="PASS" starttime="20220722 12:14:53.322" endtime="20220722 12:14:53.323"/>
+</kw>
+<for flavor="IN">
+<var>${line}</var>
+<value>@{list}</value>
+<iter>
+<var name="${line}">https://www.leboncoin.fr/voitures/2194403929.htm</var>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${Value}</var>
+<arg>${line}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20220722 12:14:53.324" level="INFO">${Value} = https://www.leboncoin.fr/voitures/2194403929.htm</msg>
+<status status="PASS" starttime="20220722 12:14:53.324" endtime="20220722 12:14:53.324"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${value}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220722 12:14:53.325" level="INFO">Opening url 'https://www.leboncoin.fr/voitures/2194403929.htm'</msg>
+<status status="PASS" starttime="20220722 12:14:53.325" endtime="20220722 12:15:06.527"/>
 </kw>
 <kw name="Get Element Count" library="SeleniumLibrary">
 <var>${present}</var>
 <arg>${var}</arg>
 <doc>Returns the number of elements matching ``locator``.</doc>
-<msg timestamp="20220722 10:04:37.075" level="INFO">${present} = 0</msg>
-<status status="PASS" starttime="20220722 10:04:37.032" endtime="20220722 10:04:37.075"/>
+<msg timestamp="20220722 12:15:06.541" level="INFO">${present} = 1</msg>
+<status status="PASS" starttime="20220722 12:15:06.527" endtime="20220722 12:15:06.541"/>
 </kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<arg>${present} != 0</arg>
-<arg>log to console</arg>
-<arg>"Successfull"</arg>
-<arg>ELSE</arg>
-<arg>log to console</arg>
-<arg>"Failed"</arg>
-<arg>END</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<kw name="Log To Console" library="BuiltIn">
-<arg>"Failed"</arg>
-<arg>END</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220722 10:04:37.077" endtime="20220722 10:04:37.077"/>
+<if>
+<branch type="IF" condition="${present} != 0">
+<kw name="LoginTry">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${var}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 12:15:06.543" level="INFO">Clicking element '//button[@title="voir le numéro"]'.</msg>
+<status status="PASS" starttime="20220722 12:15:06.542" endtime="20220722 12:15:06.759"/>
 </kw>
-<status status="PASS" starttime="20220722 10:04:37.076" endtime="20220722 10:04:37.077"/>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220722 12:15:06.759" endtime="20220722 12:15:07.247"/>
 </kw>
-<status status="PASS" starttime="20220722 10:04:36.619" endtime="20220722 10:04:37.078"/>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${number}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220722 12:15:07.287" level="INFO">${number} = 02 51 37 17 19</msg>
+<status status="PASS" starttime="20220722 12:15:07.247" endtime="20220722 12:15:07.287"/>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20220722 10:04:42.079" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20220722 10:04:37.078" endtime="20220722 10:04:42.079"/>
+<kw name="InsertNumbers">
+<arg>${number}</arg>
+<kw name="Append To File" library="OperatingSystem">
+<var>${str}</var>
+<arg>C:\\Users\\admine\\Desktop\\python Bot\\file_with_variable.txt</arg>
+<arg>${variable}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20220722 12:15:07.294" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\admine\Desktop\python Bot\file_with_variable.txt"&gt;C:\Users\admine\Desktop\python Bot\file_with_variable.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20220722 12:15:07.294" level="INFO">${str} = None</msg>
+<status status="PASS" starttime="20220722 12:15:07.288" endtime="20220722 12:15:07.295"/>
 </kw>
-<kw name="Close Browser" library="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20220722 10:04:42.080" endtime="20220722 10:04:44.419"/>
+<status status="PASS" starttime="20220722 12:15:07.287" endtime="20220722 12:15:07.295"/>
 </kw>
-<status status="PASS" starttime="20220722 10:04:16.340" endtime="20220722 10:04:44.419"/>
+<status status="PASS" starttime="20220722 12:15:06.542" endtime="20220722 12:15:07.295"/>
+</kw>
+<status status="PASS" starttime="20220722 12:15:06.542" endtime="20220722 12:15:07.295"/>
+</branch>
+<status status="PASS" starttime="20220722 12:15:06.541" endtime="20220722 12:15:07.295"/>
+</if>
+<if>
+<branch type="IF" condition="${present} == 0">
+<continue>
+<status status="NOT RUN" starttime="20220722 12:15:07.296" endtime="20220722 12:15:07.296"/>
+</continue>
+<status status="NOT RUN" starttime="20220722 12:15:07.296" endtime="20220722 12:15:07.296"/>
+</branch>
+<status status="PASS" starttime="20220722 12:15:07.295" endtime="20220722 12:15:07.296"/>
+</if>
+<status status="PASS" starttime="20220722 12:14:53.323" endtime="20220722 12:15:07.296"/>
+</iter>
+<iter>
+<var name="${line}">https://www.leboncoin.fr/voitures/2194411910.htm</var>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${Value}</var>
+<arg>${line}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20220722 12:15:07.297" level="INFO">${Value} = https://www.leboncoin.fr/voitures/2194411910.htm</msg>
+<status status="PASS" starttime="20220722 12:15:07.297" endtime="20220722 12:15:07.298"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${value}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220722 12:15:07.298" level="INFO">Opening url 'https://www.leboncoin.fr/voitures/2194411910.htm'</msg>
+<status status="PASS" starttime="20220722 12:15:07.298" endtime="20220722 12:15:24.430"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${present}</var>
+<arg>${var}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220722 12:15:24.448" level="INFO">${present} = 0</msg>
+<status status="PASS" starttime="20220722 12:15:24.430" endtime="20220722 12:15:24.448"/>
+</kw>
+<if>
+<branch type="IF" condition="${present} != 0">
+<kw name="LoginTry">
+<status status="NOT RUN" starttime="20220722 12:15:24.449" endtime="20220722 12:15:24.449"/>
+</kw>
+<status status="NOT RUN" starttime="20220722 12:15:24.449" endtime="20220722 12:15:24.449"/>
+</branch>
+<status status="PASS" starttime="20220722 12:15:24.449" endtime="20220722 12:15:24.449"/>
+</if>
+<if>
+<branch type="IF" condition="${present} == 0">
+<continue>
+<status status="PASS" starttime="20220722 12:15:24.450" endtime="20220722 12:15:24.450"/>
+</continue>
+<status status="PASS" starttime="20220722 12:15:24.450" endtime="20220722 12:15:24.450"/>
+</branch>
+<status status="PASS" starttime="20220722 12:15:24.450" endtime="20220722 12:15:24.450"/>
+</if>
+<status status="PASS" starttime="20220722 12:15:07.297" endtime="20220722 12:15:24.450"/>
+</iter>
+<iter>
+<var name="${line}">https://www.leboncoin.fr/voitures/2166138099.htm</var>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${Value}</var>
+<arg>${line}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20220722 12:15:24.451" level="INFO">${Value} = https://www.leboncoin.fr/voitures/2166138099.htm</msg>
+<status status="PASS" starttime="20220722 12:15:24.451" endtime="20220722 12:15:24.452"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${value}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220722 12:15:24.453" level="INFO">Opening url 'https://www.leboncoin.fr/voitures/2166138099.htm'</msg>
+<status status="PASS" starttime="20220722 12:15:24.452" endtime="20220722 12:15:47.265"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${present}</var>
+<arg>${var}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220722 12:15:47.281" level="INFO">${present} = 1</msg>
+<status status="PASS" starttime="20220722 12:15:47.265" endtime="20220722 12:15:47.282"/>
+</kw>
+<if>
+<branch type="IF" condition="${present} != 0">
+<kw name="LoginTry">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${var}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 12:15:47.284" level="INFO">Clicking element '//button[@title="voir le numéro"]'.</msg>
+<status status="PASS" starttime="20220722 12:15:47.283" endtime="20220722 12:15:47.497"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220722 12:15:47.497" endtime="20220722 12:15:47.764"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${number}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220722 12:15:47.803" level="INFO">${number} = 04 42 15 51 55</msg>
+<status status="PASS" starttime="20220722 12:15:47.764" endtime="20220722 12:15:47.803"/>
+</kw>
+<kw name="InsertNumbers">
+<arg>${number}</arg>
+<kw name="Append To File" library="OperatingSystem">
+<var>${str}</var>
+<arg>C:\\Users\\admine\\Desktop\\python Bot\\file_with_variable.txt</arg>
+<arg>${variable}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20220722 12:15:47.806" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\admine\Desktop\python Bot\file_with_variable.txt"&gt;C:\Users\admine\Desktop\python Bot\file_with_variable.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20220722 12:15:47.806" level="INFO">${str} = None</msg>
+<status status="PASS" starttime="20220722 12:15:47.804" endtime="20220722 12:15:47.806"/>
+</kw>
+<status status="PASS" starttime="20220722 12:15:47.804" endtime="20220722 12:15:47.807"/>
+</kw>
+<status status="PASS" starttime="20220722 12:15:47.282" endtime="20220722 12:15:47.807"/>
+</kw>
+<status status="PASS" starttime="20220722 12:15:47.282" endtime="20220722 12:15:47.807"/>
+</branch>
+<status status="PASS" starttime="20220722 12:15:47.282" endtime="20220722 12:15:47.807"/>
+</if>
+<if>
+<branch type="IF" condition="${present} == 0">
+<continue>
+<status status="NOT RUN" starttime="20220722 12:15:47.808" endtime="20220722 12:15:47.808"/>
+</continue>
+<status status="NOT RUN" starttime="20220722 12:15:47.808" endtime="20220722 12:15:47.808"/>
+</branch>
+<status status="PASS" starttime="20220722 12:15:47.807" endtime="20220722 12:15:47.808"/>
+</if>
+<status status="PASS" starttime="20220722 12:15:24.451" endtime="20220722 12:15:47.808"/>
+</iter>
+<iter>
+<var name="${line}">https://www.leboncoin.fr/voitures/2164998143.htm</var>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${Value}</var>
+<arg>${line}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20220722 12:15:47.809" level="INFO">${Value} = https://www.leboncoin.fr/voitures/2164998143.htm</msg>
+<status status="PASS" starttime="20220722 12:15:47.808" endtime="20220722 12:15:47.809"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${value}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220722 12:15:47.810" level="INFO">Opening url 'https://www.leboncoin.fr/voitures/2164998143.htm'</msg>
+<status status="PASS" starttime="20220722 12:15:47.809" endtime="20220722 12:16:07.164"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${present}</var>
+<arg>${var}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220722 12:16:07.192" level="INFO">${present} = 1</msg>
+<status status="PASS" starttime="20220722 12:16:07.164" endtime="20220722 12:16:07.192"/>
+</kw>
+<if>
+<branch type="IF" condition="${present} != 0">
+<kw name="LoginTry">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${var}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 12:16:07.194" level="INFO">Clicking element '//button[@title="voir le numéro"]'.</msg>
+<status status="PASS" starttime="20220722 12:16:07.193" endtime="20220722 12:16:07.403"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220722 12:16:07.403" endtime="20220722 12:16:08.520"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${number}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220722 12:16:08.627" level="INFO">${number} = 04 42 15 51 55</msg>
+<status status="PASS" starttime="20220722 12:16:08.521" endtime="20220722 12:16:08.627"/>
+</kw>
+<kw name="InsertNumbers">
+<arg>${number}</arg>
+<kw name="Append To File" library="OperatingSystem">
+<var>${str}</var>
+<arg>C:\\Users\\admine\\Desktop\\python Bot\\file_with_variable.txt</arg>
+<arg>${variable}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20220722 12:16:08.630" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\admine\Desktop\python Bot\file_with_variable.txt"&gt;C:\Users\admine\Desktop\python Bot\file_with_variable.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20220722 12:16:08.630" level="INFO">${str} = None</msg>
+<status status="PASS" starttime="20220722 12:16:08.629" endtime="20220722 12:16:08.630"/>
+</kw>
+<status status="PASS" starttime="20220722 12:16:08.628" endtime="20220722 12:16:08.630"/>
+</kw>
+<status status="PASS" starttime="20220722 12:16:07.193" endtime="20220722 12:16:08.631"/>
+</kw>
+<status status="PASS" starttime="20220722 12:16:07.193" endtime="20220722 12:16:08.631"/>
+</branch>
+<status status="PASS" starttime="20220722 12:16:07.192" endtime="20220722 12:16:08.631"/>
+</if>
+<if>
+<branch type="IF" condition="${present} == 0">
+<continue>
+<status status="NOT RUN" starttime="20220722 12:16:08.631" endtime="20220722 12:16:08.631"/>
+</continue>
+<status status="NOT RUN" starttime="20220722 12:16:08.631" endtime="20220722 12:16:08.632"/>
+</branch>
+<status status="PASS" starttime="20220722 12:16:08.631" endtime="20220722 12:16:08.632"/>
+</if>
+<status status="PASS" starttime="20220722 12:15:47.808" endtime="20220722 12:16:08.632"/>
+</iter>
+<iter>
+<var name="${line}">https://www.leboncoin.fr/voitures/2194411910.htm</var>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${Value}</var>
+<arg>${line}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20220722 12:16:08.633" level="INFO">${Value} = https://www.leboncoin.fr/voitures/2194411910.htm</msg>
+<status status="PASS" starttime="20220722 12:16:08.632" endtime="20220722 12:16:08.633"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${value}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220722 12:16:08.634" level="INFO">Opening url 'https://www.leboncoin.fr/voitures/2194411910.htm'</msg>
+<status status="PASS" starttime="20220722 12:16:08.634" endtime="20220722 12:16:27.865"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${present}</var>
+<arg>${var}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220722 12:16:27.877" level="INFO">${present} = 0</msg>
+<status status="PASS" starttime="20220722 12:16:27.865" endtime="20220722 12:16:27.878"/>
+</kw>
+<if>
+<branch type="IF" condition="${present} != 0">
+<kw name="LoginTry">
+<status status="NOT RUN" starttime="20220722 12:16:27.878" endtime="20220722 12:16:27.878"/>
+</kw>
+<status status="NOT RUN" starttime="20220722 12:16:27.878" endtime="20220722 12:16:27.878"/>
+</branch>
+<status status="PASS" starttime="20220722 12:16:27.878" endtime="20220722 12:16:27.878"/>
+</if>
+<if>
+<branch type="IF" condition="${present} == 0">
+<continue>
+<status status="PASS" starttime="20220722 12:16:27.879" endtime="20220722 12:16:27.879"/>
+</continue>
+<status status="PASS" starttime="20220722 12:16:27.879" endtime="20220722 12:16:27.879"/>
+</branch>
+<status status="PASS" starttime="20220722 12:16:27.878" endtime="20220722 12:16:27.879"/>
+</if>
+<status status="PASS" starttime="20220722 12:16:08.632" endtime="20220722 12:16:27.879"/>
+</iter>
+<iter>
+<var name="${line}">https://www.leboncoin.fr/voitures/2194403929.htm</var>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${Value}</var>
+<arg>${line}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20220722 12:16:27.880" level="INFO">${Value} = https://www.leboncoin.fr/voitures/2194403929.htm</msg>
+<status status="PASS" starttime="20220722 12:16:27.880" endtime="20220722 12:16:27.880"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${value}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220722 12:16:27.881" level="INFO">Opening url 'https://www.leboncoin.fr/voitures/2194403929.htm'</msg>
+<status status="PASS" starttime="20220722 12:16:27.880" endtime="20220722 12:16:37.768"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${present}</var>
+<arg>${var}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220722 12:16:37.790" level="INFO">${present} = 1</msg>
+<status status="PASS" starttime="20220722 12:16:37.768" endtime="20220722 12:16:37.790"/>
+</kw>
+<if>
+<branch type="IF" condition="${present} != 0">
+<kw name="LoginTry">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${var}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 12:16:37.792" level="INFO">Clicking element '//button[@title="voir le numéro"]'.</msg>
+<status status="PASS" starttime="20220722 12:16:37.791" endtime="20220722 12:16:38.001"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220722 12:16:38.002" endtime="20220722 12:16:38.957"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${number}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220722 12:16:39.004" level="INFO">${number} = 02 51 37 17 19</msg>
+<status status="PASS" starttime="20220722 12:16:38.957" endtime="20220722 12:16:39.004"/>
+</kw>
+<kw name="InsertNumbers">
+<arg>${number}</arg>
+<kw name="Append To File" library="OperatingSystem">
+<var>${str}</var>
+<arg>C:\\Users\\admine\\Desktop\\python Bot\\file_with_variable.txt</arg>
+<arg>${variable}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20220722 12:16:39.007" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\admine\Desktop\python Bot\file_with_variable.txt"&gt;C:\Users\admine\Desktop\python Bot\file_with_variable.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20220722 12:16:39.007" level="INFO">${str} = None</msg>
+<status status="PASS" starttime="20220722 12:16:39.005" endtime="20220722 12:16:39.007"/>
+</kw>
+<status status="PASS" starttime="20220722 12:16:39.004" endtime="20220722 12:16:39.007"/>
+</kw>
+<status status="PASS" starttime="20220722 12:16:37.790" endtime="20220722 12:16:39.008"/>
+</kw>
+<status status="PASS" starttime="20220722 12:16:37.790" endtime="20220722 12:16:39.008"/>
+</branch>
+<status status="PASS" starttime="20220722 12:16:37.790" endtime="20220722 12:16:39.008"/>
+</if>
+<if>
+<branch type="IF" condition="${present} == 0">
+<continue>
+<status status="NOT RUN" starttime="20220722 12:16:39.008" endtime="20220722 12:16:39.008"/>
+</continue>
+<status status="NOT RUN" starttime="20220722 12:16:39.008" endtime="20220722 12:16:39.008"/>
+</branch>
+<status status="PASS" starttime="20220722 12:16:39.008" endtime="20220722 12:16:39.008"/>
+</if>
+<status status="PASS" starttime="20220722 12:16:27.879" endtime="20220722 12:16:39.009"/>
+</iter>
+<iter>
+<var name="${line}">https://www.leboncoin.fr/voitures/2194411910.htm</var>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${Value}</var>
+<arg>${line}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20220722 12:16:39.010" level="INFO">${Value} = https://www.leboncoin.fr/voitures/2194411910.htm</msg>
+<status status="PASS" starttime="20220722 12:16:39.009" endtime="20220722 12:16:39.010"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${value}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220722 12:16:39.010" level="INFO">Opening url 'https://www.leboncoin.fr/voitures/2194411910.htm'</msg>
+<status status="PASS" starttime="20220722 12:16:39.010" endtime="20220722 12:16:48.876"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${present}</var>
+<arg>${var}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220722 12:16:48.888" level="INFO">${present} = 0</msg>
+<status status="PASS" starttime="20220722 12:16:48.876" endtime="20220722 12:16:48.888"/>
+</kw>
+<if>
+<branch type="IF" condition="${present} != 0">
+<kw name="LoginTry">
+<status status="NOT RUN" starttime="20220722 12:16:48.888" endtime="20220722 12:16:48.889"/>
+</kw>
+<status status="NOT RUN" starttime="20220722 12:16:48.888" endtime="20220722 12:16:48.889"/>
+</branch>
+<status status="PASS" starttime="20220722 12:16:48.888" endtime="20220722 12:16:48.889"/>
+</if>
+<if>
+<branch type="IF" condition="${present} == 0">
+<continue>
+<status status="PASS" starttime="20220722 12:16:48.889" endtime="20220722 12:16:48.889"/>
+</continue>
+<status status="PASS" starttime="20220722 12:16:48.889" endtime="20220722 12:16:48.889"/>
+</branch>
+<status status="PASS" starttime="20220722 12:16:48.889" endtime="20220722 12:16:48.889"/>
+</if>
+<status status="PASS" starttime="20220722 12:16:39.009" endtime="20220722 12:16:48.889"/>
+</iter>
+<status status="PASS" starttime="20220722 12:14:53.323" endtime="20220722 12:16:48.890"/>
+</for>
+<status status="PASS" starttime="20220722 12:14:53.320" endtime="20220722 12:16:48.890"/>
+</kw>
+<status status="PASS" starttime="20220722 12:14:05.489" endtime="20220722 12:16:48.890"/>
 </test>
 <kw name="Run Keyword And Ignore Error" library="BuiltIn" type="TEARDOWN">
 <arg>Suite shutdown</arg>
 <doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
 <kw name="Suite shutdown">
-<kw name="Erro1234r # This should fail due to no keyword named Erro1234r, it skips this and closes all browsers">
-<msg timestamp="20220722 10:04:44.434" level="FAIL">No keyword with name 'Erro1234r # This should fail due to no keyword named Erro1234r, it skips this and closes all browsers' found.</msg>
-<status status="FAIL" starttime="20220722 10:04:44.434" endtime="20220722 10:04:44.434"/>
+<kw name="Erro1234r">
+<msg timestamp="20220722 12:16:48.905" level="FAIL">No keyword with name 'Erro1234r' found.</msg>
+<status status="FAIL" starttime="20220722 12:16:48.905" endtime="20220722 12:16:48.905"/>
 </kw>
 <kw name="Close All Browsers" library="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20220722 10:04:44.434" endtime="20220722 10:04:44.434"/>
+<status status="PASS" starttime="20220722 12:16:48.905" endtime="20220722 12:16:51.513"/>
 </kw>
-<status status="FAIL" starttime="20220722 10:04:44.421" endtime="20220722 10:04:44.434"/>
+<status status="FAIL" starttime="20220722 12:16:48.893" endtime="20220722 12:16:51.513"/>
 </kw>
-<status status="PASS" starttime="20220722 10:04:44.421" endtime="20220722 10:04:44.434"/>
+<status status="PASS" starttime="20220722 12:16:48.893" endtime="20220722 12:16:51.513"/>
 </kw>
-<status status="PASS" starttime="20220722 10:04:15.931" endtime="20220722 10:04:44.434"/>
+<status status="PASS" starttime="20220722 12:14:05.054" endtime="20220722 12:16:51.513"/>
 </suite>
 <statistics>
 <total>
