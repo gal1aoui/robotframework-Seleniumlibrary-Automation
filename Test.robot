@@ -2,12 +2,13 @@
 Library  SeleniumLibrary
 Library  OperatingSystem
 Library  String
-#Suite Teardown    Run Keyword And Ignore Error  Suite shutdown
+Library     BuiltIn
 
 *** Variables ***
 ${url}      https://www.leboncoin.fr/voitures/2161331390.htm
 ${browser}  Chrome
 ${var}    //button[@title="voir le numéro"]
+${nav}      xpath://*[@id="container"]/div[1]/div/div[1]/div[2]/div/header/div[1]/nav[2]/div[2]/a[3]/div/span
 
 *** Test Cases ***
 LoginTest
@@ -27,26 +28,35 @@ ReadLinks
     FOR    ${line}   IN    @{list}
         ${Value}=   Get Variable Value  ${line}
         go to   ${value}
-        ${present}    Get Element Count    ${var}
-        IF  ${present} != 0
-            click element   ${var}
-            Sleep   5sec
-            ${waits}    Get Element Count    //a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]
-            
-            IF  ${waits} == 0     CONTINUE
-            
-            IF  ${waits} != 0
-                ${number}  Get Text    //a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]
-                InsertNumbers  ${number}
+        ${navbarExist}      Get Element Count   ${nav}
+
+        IF  ${navbarExist} != 0
+
+            ${present}    Get Element Count    ${var}
+
+            IF  ${present} != 0
+                click element   ${var}
+                Sleep   5sec
+                ${waits}    Get Element Count    //a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]
+                
+                IF  ${waits} == 0     CONTINUE
+                
+                IF  ${waits} != 0
+                    ${number}  Get Text    //a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]
+                    InsertNumbers  ${number}
+                END
+
             END
+
+            IF  ${present} == 0     CONTINUE
+            
         END
-        IF  ${present} == 0     CONTINUE
+        IF  ${navbarExist} == 0
+            Log To Console      ${Value}
+            Close Browser
+        END
     END 
 
 InsertNumbers
   [Arguments]  ${variable}
-  ${str}    Append to file  ${CURDIR}\\file_with_variable.txt  ${variable}\n
-
-# Suite shutdown
-#      Erro1234r 
-#      Close All Browsers
+  ${str}    Append to file  ${CURDIR}\\phone_numbers.txt  ${variable}\n

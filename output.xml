@@ -1,0 +1,1311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.6.4 on win32)" generated="20220801 10:45:18.038" rpa="false" schemaversion="3">
+<suite id="s1" name="Test" source="C:\Users\admine\Desktop\python Bot\Test.robot">
+<test id="s1-t1" name="LoginTest" line="14">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220801 10:45:18.449" level="INFO">Opening browser 'Chrome' to base url 'https://www.leboncoin.fr/voitures/2161331390.htm'.</msg>
+<status status="PASS" starttime="20220801 10:45:18.448" endtime="20220801 10:46:18.190"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//button[@id="didomi-notice-agree-button"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220801 10:46:18.194" level="INFO">Clicking element '//button[@id="didomi-notice-agree-button"]'.</msg>
+<status status="PASS" starttime="20220801 10:46:18.190" endtime="20220801 10:46:18.661"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${var}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220801 10:46:18.665" level="INFO">Clicking element '//button[@title="voir le numéro"]'.</msg>
+<status status="PASS" starttime="20220801 10:46:18.664" endtime="20220801 10:46:38.966"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:email</arg>
+<arg>admin@espacebazar.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220801 10:46:38.968" level="INFO">Typing text 'admin@espacebazar.com' into text field 'id:email'.</msg>
+<status status="PASS" starttime="20220801 10:46:38.967" endtime="20220801 10:46:39.119"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:password</arg>
+<arg>Espacebazar2022</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220801 10:46:39.120" level="INFO">Typing text 'Espacebazar2022' into text field 'id:password'.</msg>
+<status status="PASS" starttime="20220801 10:46:39.120" endtime="20220801 10:46:39.257"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://*[@id="__next"]/div/main/div/div/form/div[5]/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220801 10:46:39.258" level="INFO">Clicking element 'xpath://*[@id="__next"]/div/main/div/div/form/div[5]/button'.</msg>
+<status status="PASS" starttime="20220801 10:46:39.258" endtime="20220801 10:46:39.344"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${var}</arg>
+<arg>4 minutes</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220801 10:46:39.345" endtime="20220801 10:47:39.701"/>
+</kw>
+<kw name="ReadLinks">
+<kw name="Get File" library="OperatingSystem">
+<var>${File}</var>
+<arg>contacts.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20220801 10:47:39.703" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\admine\Desktop\python Bot\contacts.txt"&gt;C:\Users\admine\Desktop\python Bot\contacts.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20220801 10:47:39.703" level="INFO">${File} = https://www.leboncoin.fr/voitures/2197964239.htm
+https://www.leboncoin.fr/voitures/2197964293.htm
+https://www.leboncoin.fr/voitures/2197964311.htm
+https://www.leboncoin.fr/voitures/2197964326.htm
+http...</msg>
+<status status="PASS" starttime="20220801 10:47:39.703" endtime="20220801 10:47:39.703"/>
+</kw>
+<kw name="Split To Lines" library="String">
+<var>@{list}</var>
+<arg>${File}</arg>
+<doc>Splits the given string to lines.</doc>
+<msg timestamp="20220801 10:47:39.704" level="INFO">39 lines returned</msg>
+<msg timestamp="20220801 10:47:39.704" level="INFO">@{list} = [ https://www.leboncoin.fr/voitures/2197964239.htm | https://www.leboncoin.fr/voitures/2197964293.htm | https://www.leboncoin.fr/voitures/2197964311.htm | https://www.leboncoin.fr/voitures/2197964326....</msg>
+<status status="PASS" starttime="20220801 10:47:39.704" endtime="20220801 10:47:39.704"/>
+</kw>
+<for flavor="IN">
+<var>${line}</var>
+<value>@{list}</value>
+<iter>
+<var name="${line}">https://www.leboncoin.fr/voitures/2197964239.htm</var>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${Value}</var>
+<arg>${line}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20220801 10:47:39.706" level="INFO">${Value} = https://www.leboncoin.fr/voitures/2197964239.htm</msg>
+<status status="PASS" starttime="20220801 10:47:39.705" endtime="20220801 10:47:39.706"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${value}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220801 10:47:39.707" level="INFO">Opening url 'https://www.leboncoin.fr/voitures/2197964239.htm'</msg>
+<status status="PASS" starttime="20220801 10:47:39.706" endtime="20220801 10:47:56.171"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${navbarExist}</var>
+<arg>${nav}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220801 10:47:56.193" level="INFO">${navbarExist} = 1</msg>
+<status status="PASS" starttime="20220801 10:47:56.172" endtime="20220801 10:47:56.193"/>
+</kw>
+<if>
+<branch type="IF" condition="${navbarExist} != 0">
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${present}</var>
+<arg>${var}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220801 10:47:56.204" level="INFO">${present} = 0</msg>
+<status status="PASS" starttime="20220801 10:47:56.193" endtime="20220801 10:47:56.204"/>
+</kw>
+<if>
+<branch type="IF" condition="${present} != 0">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${var}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:47:56.204" endtime="20220801 10:47:56.204"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5sec</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20220801 10:47:56.205" endtime="20220801 10:47:56.205"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${waits}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:47:56.205" endtime="20220801 10:47:56.205"/>
+</kw>
+<if>
+<branch type="IF" condition="${waits} == 0">
+<continue>
+<status status="NOT RUN" starttime="20220801 10:47:56.205" endtime="20220801 10:47:56.205"/>
+</continue>
+<status status="NOT RUN" starttime="20220801 10:47:56.205" endtime="20220801 10:47:56.205"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:47:56.205" endtime="20220801 10:47:56.205"/>
+</if>
+<if>
+<branch type="IF" condition="${waits} != 0">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${number}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:47:56.206" endtime="20220801 10:47:56.206"/>
+</kw>
+<kw name="InsertNumbers">
+<arg>${number}</arg>
+<status status="NOT RUN" starttime="20220801 10:47:56.206" endtime="20220801 10:47:56.206"/>
+</kw>
+<status status="NOT RUN" starttime="20220801 10:47:56.206" endtime="20220801 10:47:56.206"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:47:56.206" endtime="20220801 10:47:56.206"/>
+</if>
+<status status="NOT RUN" starttime="20220801 10:47:56.204" endtime="20220801 10:47:56.206"/>
+</branch>
+<status status="PASS" starttime="20220801 10:47:56.204" endtime="20220801 10:47:56.206"/>
+</if>
+<if>
+<branch type="IF" condition="${present} == 0">
+<continue>
+<status status="PASS" starttime="20220801 10:47:56.206" endtime="20220801 10:47:56.206"/>
+</continue>
+<status status="PASS" starttime="20220801 10:47:56.206" endtime="20220801 10:47:56.206"/>
+</branch>
+<status status="PASS" starttime="20220801 10:47:56.206" endtime="20220801 10:47:56.206"/>
+</if>
+<status status="PASS" starttime="20220801 10:47:56.193" endtime="20220801 10:47:56.206"/>
+</branch>
+<status status="PASS" starttime="20220801 10:47:56.193" endtime="20220801 10:47:56.206"/>
+</if>
+<if>
+<branch type="IF" condition="${navbarExist} == 0">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Value}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220801 10:47:56.206" endtime="20220801 10:47:56.206"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" starttime="20220801 10:47:56.209" endtime="20220801 10:47:56.209"/>
+</kw>
+<status status="NOT RUN" starttime="20220801 10:47:56.206" endtime="20220801 10:47:56.209"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:47:56.206" endtime="20220801 10:47:56.209"/>
+</if>
+<status status="PASS" starttime="20220801 10:47:39.705" endtime="20220801 10:47:56.209"/>
+</iter>
+<iter>
+<var name="${line}">https://www.leboncoin.fr/voitures/2197964293.htm</var>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${Value}</var>
+<arg>${line}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20220801 10:47:56.209" level="INFO">${Value} = https://www.leboncoin.fr/voitures/2197964293.htm</msg>
+<status status="PASS" starttime="20220801 10:47:56.209" endtime="20220801 10:47:56.209"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${value}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220801 10:47:56.209" level="INFO">Opening url 'https://www.leboncoin.fr/voitures/2197964293.htm'</msg>
+<status status="PASS" starttime="20220801 10:47:56.209" endtime="20220801 10:48:07.422"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${navbarExist}</var>
+<arg>${nav}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220801 10:48:07.438" level="INFO">${navbarExist} = 1</msg>
+<status status="PASS" starttime="20220801 10:48:07.422" endtime="20220801 10:48:07.438"/>
+</kw>
+<if>
+<branch type="IF" condition="${navbarExist} != 0">
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${present}</var>
+<arg>${var}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220801 10:48:07.452" level="INFO">${present} = 0</msg>
+<status status="PASS" starttime="20220801 10:48:07.439" endtime="20220801 10:48:07.452"/>
+</kw>
+<if>
+<branch type="IF" condition="${present} != 0">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${var}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:48:07.453" endtime="20220801 10:48:07.453"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5sec</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20220801 10:48:07.454" endtime="20220801 10:48:07.454"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${waits}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:48:07.454" endtime="20220801 10:48:07.454"/>
+</kw>
+<if>
+<branch type="IF" condition="${waits} == 0">
+<continue>
+<status status="NOT RUN" starttime="20220801 10:48:07.454" endtime="20220801 10:48:07.454"/>
+</continue>
+<status status="NOT RUN" starttime="20220801 10:48:07.454" endtime="20220801 10:48:07.454"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:48:07.454" endtime="20220801 10:48:07.455"/>
+</if>
+<if>
+<branch type="IF" condition="${waits} != 0">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${number}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:48:07.455" endtime="20220801 10:48:07.455"/>
+</kw>
+<kw name="InsertNumbers">
+<arg>${number}</arg>
+<status status="NOT RUN" starttime="20220801 10:48:07.455" endtime="20220801 10:48:07.455"/>
+</kw>
+<status status="NOT RUN" starttime="20220801 10:48:07.455" endtime="20220801 10:48:07.455"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:48:07.455" endtime="20220801 10:48:07.455"/>
+</if>
+<status status="NOT RUN" starttime="20220801 10:48:07.453" endtime="20220801 10:48:07.455"/>
+</branch>
+<status status="PASS" starttime="20220801 10:48:07.452" endtime="20220801 10:48:07.456"/>
+</if>
+<if>
+<branch type="IF" condition="${present} == 0">
+<continue>
+<status status="PASS" starttime="20220801 10:48:07.456" endtime="20220801 10:48:07.456"/>
+</continue>
+<status status="PASS" starttime="20220801 10:48:07.456" endtime="20220801 10:48:07.456"/>
+</branch>
+<status status="PASS" starttime="20220801 10:48:07.456" endtime="20220801 10:48:07.456"/>
+</if>
+<status status="PASS" starttime="20220801 10:48:07.439" endtime="20220801 10:48:07.456"/>
+</branch>
+<status status="PASS" starttime="20220801 10:48:07.438" endtime="20220801 10:48:07.456"/>
+</if>
+<if>
+<branch type="IF" condition="${navbarExist} == 0">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Value}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220801 10:48:07.457" endtime="20220801 10:48:07.457"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" starttime="20220801 10:48:07.457" endtime="20220801 10:48:07.457"/>
+</kw>
+<status status="NOT RUN" starttime="20220801 10:48:07.457" endtime="20220801 10:48:07.457"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:48:07.457" endtime="20220801 10:48:07.457"/>
+</if>
+<status status="PASS" starttime="20220801 10:47:56.209" endtime="20220801 10:48:07.457"/>
+</iter>
+<iter>
+<var name="${line}">https://www.leboncoin.fr/voitures/2197964311.htm</var>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${Value}</var>
+<arg>${line}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20220801 10:48:07.458" level="INFO">${Value} = https://www.leboncoin.fr/voitures/2197964311.htm</msg>
+<status status="PASS" starttime="20220801 10:48:07.458" endtime="20220801 10:48:07.459"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${value}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220801 10:48:07.459" level="INFO">Opening url 'https://www.leboncoin.fr/voitures/2197964311.htm'</msg>
+<status status="PASS" starttime="20220801 10:48:07.459" endtime="20220801 10:48:14.588"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${navbarExist}</var>
+<arg>${nav}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220801 10:48:14.618" level="INFO">${navbarExist} = 1</msg>
+<status status="PASS" starttime="20220801 10:48:14.589" endtime="20220801 10:48:14.618"/>
+</kw>
+<if>
+<branch type="IF" condition="${navbarExist} != 0">
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${present}</var>
+<arg>${var}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220801 10:48:14.634" level="INFO">${present} = 0</msg>
+<status status="PASS" starttime="20220801 10:48:14.619" endtime="20220801 10:48:14.634"/>
+</kw>
+<if>
+<branch type="IF" condition="${present} != 0">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${var}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:48:14.634" endtime="20220801 10:48:14.634"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5sec</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20220801 10:48:14.635" endtime="20220801 10:48:14.635"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${waits}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:48:14.635" endtime="20220801 10:48:14.635"/>
+</kw>
+<if>
+<branch type="IF" condition="${waits} == 0">
+<continue>
+<status status="NOT RUN" starttime="20220801 10:48:14.636" endtime="20220801 10:48:14.636"/>
+</continue>
+<status status="NOT RUN" starttime="20220801 10:48:14.635" endtime="20220801 10:48:14.636"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:48:14.635" endtime="20220801 10:48:14.636"/>
+</if>
+<if>
+<branch type="IF" condition="${waits} != 0">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${number}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:48:14.636" endtime="20220801 10:48:14.636"/>
+</kw>
+<kw name="InsertNumbers">
+<arg>${number}</arg>
+<status status="NOT RUN" starttime="20220801 10:48:14.636" endtime="20220801 10:48:14.637"/>
+</kw>
+<status status="NOT RUN" starttime="20220801 10:48:14.636" endtime="20220801 10:48:14.637"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:48:14.636" endtime="20220801 10:48:14.637"/>
+</if>
+<status status="NOT RUN" starttime="20220801 10:48:14.634" endtime="20220801 10:48:14.637"/>
+</branch>
+<status status="PASS" starttime="20220801 10:48:14.634" endtime="20220801 10:48:14.637"/>
+</if>
+<if>
+<branch type="IF" condition="${present} == 0">
+<continue>
+<status status="PASS" starttime="20220801 10:48:14.638" endtime="20220801 10:48:14.638"/>
+</continue>
+<status status="PASS" starttime="20220801 10:48:14.637" endtime="20220801 10:48:14.638"/>
+</branch>
+<status status="PASS" starttime="20220801 10:48:14.637" endtime="20220801 10:48:14.638"/>
+</if>
+<status status="PASS" starttime="20220801 10:48:14.618" endtime="20220801 10:48:14.638"/>
+</branch>
+<status status="PASS" starttime="20220801 10:48:14.618" endtime="20220801 10:48:14.638"/>
+</if>
+<if>
+<branch type="IF" condition="${navbarExist} == 0">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Value}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220801 10:48:14.638" endtime="20220801 10:48:14.638"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" starttime="20220801 10:48:14.639" endtime="20220801 10:48:14.639"/>
+</kw>
+<status status="NOT RUN" starttime="20220801 10:48:14.638" endtime="20220801 10:48:14.639"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:48:14.638" endtime="20220801 10:48:14.639"/>
+</if>
+<status status="PASS" starttime="20220801 10:48:07.458" endtime="20220801 10:48:14.639"/>
+</iter>
+<iter>
+<var name="${line}">https://www.leboncoin.fr/voitures/2197964326.htm</var>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${Value}</var>
+<arg>${line}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20220801 10:48:14.640" level="INFO">${Value} = https://www.leboncoin.fr/voitures/2197964326.htm</msg>
+<status status="PASS" starttime="20220801 10:48:14.639" endtime="20220801 10:48:14.640"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${value}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220801 10:48:14.641" level="INFO">Opening url 'https://www.leboncoin.fr/voitures/2197964326.htm'</msg>
+<status status="PASS" starttime="20220801 10:48:14.641" endtime="20220801 10:48:40.852"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${navbarExist}</var>
+<arg>${nav}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220801 10:48:40.870" level="INFO">${navbarExist} = 1</msg>
+<status status="PASS" starttime="20220801 10:48:40.852" endtime="20220801 10:48:40.870"/>
+</kw>
+<if>
+<branch type="IF" condition="${navbarExist} != 0">
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${present}</var>
+<arg>${var}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220801 10:48:40.881" level="INFO">${present} = 0</msg>
+<status status="PASS" starttime="20220801 10:48:40.871" endtime="20220801 10:48:40.881"/>
+</kw>
+<if>
+<branch type="IF" condition="${present} != 0">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${var}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:48:40.882" endtime="20220801 10:48:40.882"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5sec</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20220801 10:48:40.882" endtime="20220801 10:48:40.882"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${waits}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:48:40.883" endtime="20220801 10:48:40.883"/>
+</kw>
+<if>
+<branch type="IF" condition="${waits} == 0">
+<continue>
+<status status="NOT RUN" starttime="20220801 10:48:40.883" endtime="20220801 10:48:40.883"/>
+</continue>
+<status status="NOT RUN" starttime="20220801 10:48:40.883" endtime="20220801 10:48:40.883"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:48:40.883" endtime="20220801 10:48:40.883"/>
+</if>
+<if>
+<branch type="IF" condition="${waits} != 0">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${number}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:48:40.884" endtime="20220801 10:48:40.884"/>
+</kw>
+<kw name="InsertNumbers">
+<arg>${number}</arg>
+<status status="NOT RUN" starttime="20220801 10:48:40.884" endtime="20220801 10:48:40.884"/>
+</kw>
+<status status="NOT RUN" starttime="20220801 10:48:40.883" endtime="20220801 10:48:40.884"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:48:40.883" endtime="20220801 10:48:40.884"/>
+</if>
+<status status="NOT RUN" starttime="20220801 10:48:40.882" endtime="20220801 10:48:40.884"/>
+</branch>
+<status status="PASS" starttime="20220801 10:48:40.882" endtime="20220801 10:48:40.884"/>
+</if>
+<if>
+<branch type="IF" condition="${present} == 0">
+<continue>
+<status status="PASS" starttime="20220801 10:48:40.885" endtime="20220801 10:48:40.885"/>
+</continue>
+<status status="PASS" starttime="20220801 10:48:40.885" endtime="20220801 10:48:40.885"/>
+</branch>
+<status status="PASS" starttime="20220801 10:48:40.884" endtime="20220801 10:48:40.885"/>
+</if>
+<status status="PASS" starttime="20220801 10:48:40.870" endtime="20220801 10:48:40.885"/>
+</branch>
+<status status="PASS" starttime="20220801 10:48:40.870" endtime="20220801 10:48:40.885"/>
+</if>
+<if>
+<branch type="IF" condition="${navbarExist} == 0">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Value}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220801 10:48:40.885" endtime="20220801 10:48:40.886"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" starttime="20220801 10:48:40.886" endtime="20220801 10:48:40.886"/>
+</kw>
+<status status="NOT RUN" starttime="20220801 10:48:40.885" endtime="20220801 10:48:40.886"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:48:40.885" endtime="20220801 10:48:40.886"/>
+</if>
+<status status="PASS" starttime="20220801 10:48:14.639" endtime="20220801 10:48:40.886"/>
+</iter>
+<iter>
+<var name="${line}">https://www.leboncoin.fr/voitures/2197964384.htm</var>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${Value}</var>
+<arg>${line}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20220801 10:48:40.887" level="INFO">${Value} = https://www.leboncoin.fr/voitures/2197964384.htm</msg>
+<status status="PASS" starttime="20220801 10:48:40.887" endtime="20220801 10:48:40.887"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${value}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220801 10:48:40.888" level="INFO">Opening url 'https://www.leboncoin.fr/voitures/2197964384.htm'</msg>
+<status status="PASS" starttime="20220801 10:48:40.888" endtime="20220801 10:49:24.016"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${navbarExist}</var>
+<arg>${nav}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220801 10:49:24.031" level="INFO">${navbarExist} = 1</msg>
+<status status="PASS" starttime="20220801 10:49:24.016" endtime="20220801 10:49:24.031"/>
+</kw>
+<if>
+<branch type="IF" condition="${navbarExist} != 0">
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${present}</var>
+<arg>${var}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220801 10:49:24.043" level="INFO">${present} = 1</msg>
+<status status="PASS" starttime="20220801 10:49:24.031" endtime="20220801 10:49:24.043"/>
+</kw>
+<if>
+<branch type="IF" condition="${present} != 0">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${var}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220801 10:49:24.044" level="INFO">Clicking element '//button[@title="voir le numéro"]'.</msg>
+<status status="PASS" starttime="20220801 10:49:24.043" endtime="20220801 10:49:24.223"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5sec</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220801 10:49:29.224" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20220801 10:49:24.224" endtime="20220801 10:49:29.224"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${waits}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220801 10:49:29.246" level="INFO">${waits} = 1</msg>
+<status status="PASS" starttime="20220801 10:49:29.224" endtime="20220801 10:49:29.246"/>
+</kw>
+<if>
+<branch type="IF" condition="${waits} == 0">
+<continue>
+<status status="NOT RUN" starttime="20220801 10:49:29.247" endtime="20220801 10:49:29.247"/>
+</continue>
+<status status="NOT RUN" starttime="20220801 10:49:29.247" endtime="20220801 10:49:29.247"/>
+</branch>
+<status status="PASS" starttime="20220801 10:49:29.246" endtime="20220801 10:49:29.247"/>
+</if>
+<if>
+<branch type="IF" condition="${waits} != 0">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${number}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220801 10:49:29.284" level="INFO">${number} = 06 43 63 78 37</msg>
+<status status="PASS" starttime="20220801 10:49:29.248" endtime="20220801 10:49:29.284"/>
+</kw>
+<kw name="InsertNumbers">
+<arg>${number}</arg>
+<kw name="Append To File" library="OperatingSystem">
+<var>${str}</var>
+<arg>C:\\Users\\admine\\Desktop\\python Bot\\phone_numbers.txt</arg>
+<arg>${variable}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20220801 10:49:29.287" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\admine\Desktop\python Bot\phone_numbers.txt"&gt;C:\Users\admine\Desktop\python Bot\phone_numbers.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20220801 10:49:29.287" level="INFO">${str} = None</msg>
+<status status="PASS" starttime="20220801 10:49:29.285" endtime="20220801 10:49:29.287"/>
+</kw>
+<status status="PASS" starttime="20220801 10:49:29.284" endtime="20220801 10:49:29.288"/>
+</kw>
+<status status="PASS" starttime="20220801 10:49:29.248" endtime="20220801 10:49:29.288"/>
+</branch>
+<status status="PASS" starttime="20220801 10:49:29.247" endtime="20220801 10:49:29.288"/>
+</if>
+<status status="PASS" starttime="20220801 10:49:24.043" endtime="20220801 10:49:29.288"/>
+</branch>
+<status status="PASS" starttime="20220801 10:49:24.043" endtime="20220801 10:49:29.288"/>
+</if>
+<if>
+<branch type="IF" condition="${present} == 0">
+<continue>
+<status status="NOT RUN" starttime="20220801 10:49:29.289" endtime="20220801 10:49:29.289"/>
+</continue>
+<status status="NOT RUN" starttime="20220801 10:49:29.289" endtime="20220801 10:49:29.289"/>
+</branch>
+<status status="PASS" starttime="20220801 10:49:29.288" endtime="20220801 10:49:29.289"/>
+</if>
+<status status="PASS" starttime="20220801 10:49:24.031" endtime="20220801 10:49:29.289"/>
+</branch>
+<status status="PASS" starttime="20220801 10:49:24.031" endtime="20220801 10:49:29.289"/>
+</if>
+<if>
+<branch type="IF" condition="${navbarExist} == 0">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Value}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220801 10:49:29.290" endtime="20220801 10:49:29.290"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" starttime="20220801 10:49:29.291" endtime="20220801 10:49:29.291"/>
+</kw>
+<status status="NOT RUN" starttime="20220801 10:49:29.290" endtime="20220801 10:49:29.291"/>
+</branch>
+<status status="PASS" starttime="20220801 10:49:29.290" endtime="20220801 10:49:29.291"/>
+</if>
+<status status="PASS" starttime="20220801 10:48:40.886" endtime="20220801 10:49:29.291"/>
+</iter>
+<iter>
+<var name="${line}">https://www.leboncoin.fr/voitures/2197964385.htm</var>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${Value}</var>
+<arg>${line}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20220801 10:49:29.292" level="INFO">${Value} = https://www.leboncoin.fr/voitures/2197964385.htm</msg>
+<status status="PASS" starttime="20220801 10:49:29.292" endtime="20220801 10:49:29.293"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${value}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220801 10:49:29.293" level="INFO">Opening url 'https://www.leboncoin.fr/voitures/2197964385.htm'</msg>
+<status status="PASS" starttime="20220801 10:49:29.293" endtime="20220801 10:49:39.743"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${navbarExist}</var>
+<arg>${nav}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220801 10:49:39.759" level="INFO">${navbarExist} = 1</msg>
+<status status="PASS" starttime="20220801 10:49:39.743" endtime="20220801 10:49:39.759"/>
+</kw>
+<if>
+<branch type="IF" condition="${navbarExist} != 0">
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${present}</var>
+<arg>${var}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220801 10:49:39.773" level="INFO">${present} = 0</msg>
+<status status="PASS" starttime="20220801 10:49:39.760" endtime="20220801 10:49:39.774"/>
+</kw>
+<if>
+<branch type="IF" condition="${present} != 0">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${var}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:49:39.774" endtime="20220801 10:49:39.774"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5sec</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20220801 10:49:39.774" endtime="20220801 10:49:39.774"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${waits}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:49:39.775" endtime="20220801 10:49:39.775"/>
+</kw>
+<if>
+<branch type="IF" condition="${waits} == 0">
+<continue>
+<status status="NOT RUN" starttime="20220801 10:49:39.775" endtime="20220801 10:49:39.775"/>
+</continue>
+<status status="NOT RUN" starttime="20220801 10:49:39.775" endtime="20220801 10:49:39.775"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:49:39.775" endtime="20220801 10:49:39.775"/>
+</if>
+<if>
+<branch type="IF" condition="${waits} != 0">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${number}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:49:39.776" endtime="20220801 10:49:39.776"/>
+</kw>
+<kw name="InsertNumbers">
+<arg>${number}</arg>
+<status status="NOT RUN" starttime="20220801 10:49:39.776" endtime="20220801 10:49:39.776"/>
+</kw>
+<status status="NOT RUN" starttime="20220801 10:49:39.776" endtime="20220801 10:49:39.776"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:49:39.775" endtime="20220801 10:49:39.776"/>
+</if>
+<status status="NOT RUN" starttime="20220801 10:49:39.774" endtime="20220801 10:49:39.776"/>
+</branch>
+<status status="PASS" starttime="20220801 10:49:39.774" endtime="20220801 10:49:39.776"/>
+</if>
+<if>
+<branch type="IF" condition="${present} == 0">
+<continue>
+<status status="PASS" starttime="20220801 10:49:39.777" endtime="20220801 10:49:39.777"/>
+</continue>
+<status status="PASS" starttime="20220801 10:49:39.777" endtime="20220801 10:49:39.777"/>
+</branch>
+<status status="PASS" starttime="20220801 10:49:39.776" endtime="20220801 10:49:39.777"/>
+</if>
+<status status="PASS" starttime="20220801 10:49:39.760" endtime="20220801 10:49:39.777"/>
+</branch>
+<status status="PASS" starttime="20220801 10:49:39.760" endtime="20220801 10:49:39.777"/>
+</if>
+<if>
+<branch type="IF" condition="${navbarExist} == 0">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Value}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220801 10:49:39.778" endtime="20220801 10:49:39.778"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" starttime="20220801 10:49:39.778" endtime="20220801 10:49:39.778"/>
+</kw>
+<status status="NOT RUN" starttime="20220801 10:49:39.777" endtime="20220801 10:49:39.778"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:49:39.777" endtime="20220801 10:49:39.778"/>
+</if>
+<status status="PASS" starttime="20220801 10:49:29.291" endtime="20220801 10:49:39.778"/>
+</iter>
+<iter>
+<var name="${line}">https://www.leboncoin.fr/voitures/2197964405.htm</var>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${Value}</var>
+<arg>${line}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20220801 10:49:39.779" level="INFO">${Value} = https://www.leboncoin.fr/voitures/2197964405.htm</msg>
+<status status="PASS" starttime="20220801 10:49:39.778" endtime="20220801 10:49:39.779"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${value}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220801 10:49:39.780" level="INFO">Opening url 'https://www.leboncoin.fr/voitures/2197964405.htm'</msg>
+<status status="PASS" starttime="20220801 10:49:39.779" endtime="20220801 10:50:00.586"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${navbarExist}</var>
+<arg>${nav}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220801 10:50:00.602" level="INFO">${navbarExist} = 1</msg>
+<status status="PASS" starttime="20220801 10:50:00.586" endtime="20220801 10:50:00.602"/>
+</kw>
+<if>
+<branch type="IF" condition="${navbarExist} != 0">
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${present}</var>
+<arg>${var}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220801 10:50:00.616" level="INFO">${present} = 0</msg>
+<status status="PASS" starttime="20220801 10:50:00.603" endtime="20220801 10:50:00.616"/>
+</kw>
+<if>
+<branch type="IF" condition="${present} != 0">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${var}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:50:00.617" endtime="20220801 10:50:00.617"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5sec</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20220801 10:50:00.617" endtime="20220801 10:50:00.617"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${waits}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:50:00.617" endtime="20220801 10:50:00.617"/>
+</kw>
+<if>
+<branch type="IF" condition="${waits} == 0">
+<continue>
+<status status="NOT RUN" starttime="20220801 10:50:00.618" endtime="20220801 10:50:00.618"/>
+</continue>
+<status status="NOT RUN" starttime="20220801 10:50:00.618" endtime="20220801 10:50:00.618"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:50:00.618" endtime="20220801 10:50:00.618"/>
+</if>
+<if>
+<branch type="IF" condition="${waits} != 0">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${number}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:50:00.618" endtime="20220801 10:50:00.618"/>
+</kw>
+<kw name="InsertNumbers">
+<arg>${number}</arg>
+<status status="NOT RUN" starttime="20220801 10:50:00.618" endtime="20220801 10:50:00.619"/>
+</kw>
+<status status="NOT RUN" starttime="20220801 10:50:00.618" endtime="20220801 10:50:00.619"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:50:00.618" endtime="20220801 10:50:00.619"/>
+</if>
+<status status="NOT RUN" starttime="20220801 10:50:00.616" endtime="20220801 10:50:00.619"/>
+</branch>
+<status status="PASS" starttime="20220801 10:50:00.616" endtime="20220801 10:50:00.619"/>
+</if>
+<if>
+<branch type="IF" condition="${present} == 0">
+<continue>
+<status status="PASS" starttime="20220801 10:50:00.619" endtime="20220801 10:50:00.619"/>
+</continue>
+<status status="PASS" starttime="20220801 10:50:00.619" endtime="20220801 10:50:00.619"/>
+</branch>
+<status status="PASS" starttime="20220801 10:50:00.619" endtime="20220801 10:50:00.620"/>
+</if>
+<status status="PASS" starttime="20220801 10:50:00.603" endtime="20220801 10:50:00.620"/>
+</branch>
+<status status="PASS" starttime="20220801 10:50:00.602" endtime="20220801 10:50:00.620"/>
+</if>
+<if>
+<branch type="IF" condition="${navbarExist} == 0">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Value}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220801 10:50:00.620" endtime="20220801 10:50:00.620"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" starttime="20220801 10:50:00.620" endtime="20220801 10:50:00.620"/>
+</kw>
+<status status="NOT RUN" starttime="20220801 10:50:00.620" endtime="20220801 10:50:00.620"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:50:00.620" endtime="20220801 10:50:00.621"/>
+</if>
+<status status="PASS" starttime="20220801 10:49:39.778" endtime="20220801 10:50:00.621"/>
+</iter>
+<iter>
+<var name="${line}">https://www.leboncoin.fr/voitures/2197964417.htm</var>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${Value}</var>
+<arg>${line}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20220801 10:50:00.622" level="INFO">${Value} = https://www.leboncoin.fr/voitures/2197964417.htm</msg>
+<status status="PASS" starttime="20220801 10:50:00.621" endtime="20220801 10:50:00.622"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${value}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220801 10:50:00.622" level="INFO">Opening url 'https://www.leboncoin.fr/voitures/2197964417.htm'</msg>
+<status status="PASS" starttime="20220801 10:50:00.622" endtime="20220801 10:50:20.343"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${navbarExist}</var>
+<arg>${nav}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220801 10:50:20.363" level="INFO">${navbarExist} = 1</msg>
+<status status="PASS" starttime="20220801 10:50:20.343" endtime="20220801 10:50:20.363"/>
+</kw>
+<if>
+<branch type="IF" condition="${navbarExist} != 0">
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${present}</var>
+<arg>${var}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220801 10:50:20.376" level="INFO">${present} = 1</msg>
+<status status="PASS" starttime="20220801 10:50:20.364" endtime="20220801 10:50:20.376"/>
+</kw>
+<if>
+<branch type="IF" condition="${present} != 0">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${var}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220801 10:50:20.377" level="INFO">Clicking element '//button[@title="voir le numéro"]'.</msg>
+<status status="PASS" starttime="20220801 10:50:20.376" endtime="20220801 10:50:20.570"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5sec</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220801 10:50:25.571" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20220801 10:50:20.570" endtime="20220801 10:50:25.571"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${waits}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220801 10:50:25.594" level="INFO">${waits} = 1</msg>
+<status status="PASS" starttime="20220801 10:50:25.571" endtime="20220801 10:50:25.595"/>
+</kw>
+<if>
+<branch type="IF" condition="${waits} == 0">
+<continue>
+<status status="NOT RUN" starttime="20220801 10:50:25.595" endtime="20220801 10:50:25.595"/>
+</continue>
+<status status="NOT RUN" starttime="20220801 10:50:25.595" endtime="20220801 10:50:25.595"/>
+</branch>
+<status status="PASS" starttime="20220801 10:50:25.595" endtime="20220801 10:50:25.595"/>
+</if>
+<if>
+<branch type="IF" condition="${waits} != 0">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${number}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220801 10:50:25.628" level="INFO">${number} = 06 69 15 03 13</msg>
+<status status="PASS" starttime="20220801 10:50:25.596" endtime="20220801 10:50:25.629"/>
+</kw>
+<kw name="InsertNumbers">
+<arg>${number}</arg>
+<kw name="Append To File" library="OperatingSystem">
+<var>${str}</var>
+<arg>C:\\Users\\admine\\Desktop\\python Bot\\phone_numbers.txt</arg>
+<arg>${variable}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20220801 10:50:25.631" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\admine\Desktop\python Bot\phone_numbers.txt"&gt;C:\Users\admine\Desktop\python Bot\phone_numbers.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20220801 10:50:25.631" level="INFO">${str} = None</msg>
+<status status="PASS" starttime="20220801 10:50:25.630" endtime="20220801 10:50:25.631"/>
+</kw>
+<status status="PASS" starttime="20220801 10:50:25.629" endtime="20220801 10:50:25.631"/>
+</kw>
+<status status="PASS" starttime="20220801 10:50:25.596" endtime="20220801 10:50:25.631"/>
+</branch>
+<status status="PASS" starttime="20220801 10:50:25.595" endtime="20220801 10:50:25.631"/>
+</if>
+<status status="PASS" starttime="20220801 10:50:20.376" endtime="20220801 10:50:25.632"/>
+</branch>
+<status status="PASS" starttime="20220801 10:50:20.376" endtime="20220801 10:50:25.632"/>
+</if>
+<if>
+<branch type="IF" condition="${present} == 0">
+<continue>
+<status status="NOT RUN" starttime="20220801 10:50:25.633" endtime="20220801 10:50:25.633"/>
+</continue>
+<status status="NOT RUN" starttime="20220801 10:50:25.633" endtime="20220801 10:50:25.633"/>
+</branch>
+<status status="PASS" starttime="20220801 10:50:25.632" endtime="20220801 10:50:25.633"/>
+</if>
+<status status="PASS" starttime="20220801 10:50:20.364" endtime="20220801 10:50:25.633"/>
+</branch>
+<status status="PASS" starttime="20220801 10:50:20.363" endtime="20220801 10:50:25.633"/>
+</if>
+<if>
+<branch type="IF" condition="${navbarExist} == 0">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Value}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220801 10:50:25.634" endtime="20220801 10:50:25.634"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" starttime="20220801 10:50:25.634" endtime="20220801 10:50:25.634"/>
+</kw>
+<status status="NOT RUN" starttime="20220801 10:50:25.633" endtime="20220801 10:50:25.634"/>
+</branch>
+<status status="PASS" starttime="20220801 10:50:25.633" endtime="20220801 10:50:25.634"/>
+</if>
+<status status="PASS" starttime="20220801 10:50:00.621" endtime="20220801 10:50:25.635"/>
+</iter>
+<iter>
+<var name="${line}">https://www.leboncoin.fr/voitures/2197964427.htm</var>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${Value}</var>
+<arg>${line}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20220801 10:50:25.636" level="INFO">${Value} = https://www.leboncoin.fr/voitures/2197964427.htm</msg>
+<status status="PASS" starttime="20220801 10:50:25.635" endtime="20220801 10:50:25.636"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${value}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220801 10:50:25.637" level="INFO">Opening url 'https://www.leboncoin.fr/voitures/2197964427.htm'</msg>
+<status status="PASS" starttime="20220801 10:50:25.636" endtime="20220801 10:50:47.626"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${navbarExist}</var>
+<arg>${nav}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220801 10:50:47.640" level="INFO">${navbarExist} = 1</msg>
+<status status="PASS" starttime="20220801 10:50:47.626" endtime="20220801 10:50:47.641"/>
+</kw>
+<if>
+<branch type="IF" condition="${navbarExist} != 0">
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${present}</var>
+<arg>${var}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220801 10:50:47.655" level="INFO">${present} = 0</msg>
+<status status="PASS" starttime="20220801 10:50:47.641" endtime="20220801 10:50:47.656"/>
+</kw>
+<if>
+<branch type="IF" condition="${present} != 0">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${var}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:50:47.656" endtime="20220801 10:50:47.656"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5sec</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20220801 10:50:47.656" endtime="20220801 10:50:47.657"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${waits}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:50:47.657" endtime="20220801 10:50:47.657"/>
+</kw>
+<if>
+<branch type="IF" condition="${waits} == 0">
+<continue>
+<status status="NOT RUN" starttime="20220801 10:50:47.657" endtime="20220801 10:50:47.657"/>
+</continue>
+<status status="NOT RUN" starttime="20220801 10:50:47.657" endtime="20220801 10:50:47.657"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:50:47.657" endtime="20220801 10:50:47.657"/>
+</if>
+<if>
+<branch type="IF" condition="${waits} != 0">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${number}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:50:47.658" endtime="20220801 10:50:47.658"/>
+</kw>
+<kw name="InsertNumbers">
+<arg>${number}</arg>
+<status status="NOT RUN" starttime="20220801 10:50:47.658" endtime="20220801 10:50:47.658"/>
+</kw>
+<status status="NOT RUN" starttime="20220801 10:50:47.658" endtime="20220801 10:50:47.658"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:50:47.658" endtime="20220801 10:50:47.658"/>
+</if>
+<status status="NOT RUN" starttime="20220801 10:50:47.656" endtime="20220801 10:50:47.658"/>
+</branch>
+<status status="PASS" starttime="20220801 10:50:47.656" endtime="20220801 10:50:47.659"/>
+</if>
+<if>
+<branch type="IF" condition="${present} == 0">
+<continue>
+<status status="PASS" starttime="20220801 10:50:47.659" endtime="20220801 10:50:47.659"/>
+</continue>
+<status status="PASS" starttime="20220801 10:50:47.659" endtime="20220801 10:50:47.659"/>
+</branch>
+<status status="PASS" starttime="20220801 10:50:47.659" endtime="20220801 10:50:47.659"/>
+</if>
+<status status="PASS" starttime="20220801 10:50:47.641" endtime="20220801 10:50:47.659"/>
+</branch>
+<status status="PASS" starttime="20220801 10:50:47.641" endtime="20220801 10:50:47.659"/>
+</if>
+<if>
+<branch type="IF" condition="${navbarExist} == 0">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Value}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220801 10:50:47.660" endtime="20220801 10:50:47.660"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" starttime="20220801 10:50:47.660" endtime="20220801 10:50:47.660"/>
+</kw>
+<status status="NOT RUN" starttime="20220801 10:50:47.659" endtime="20220801 10:50:47.660"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:50:47.659" endtime="20220801 10:50:47.660"/>
+</if>
+<status status="PASS" starttime="20220801 10:50:25.635" endtime="20220801 10:50:47.660"/>
+</iter>
+<iter>
+<var name="${line}">https://www.leboncoin.fr/voitures/2197964442.htm</var>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${Value}</var>
+<arg>${line}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20220801 10:50:47.661" level="INFO">${Value} = https://www.leboncoin.fr/voitures/2197964442.htm</msg>
+<status status="PASS" starttime="20220801 10:50:47.661" endtime="20220801 10:50:47.661"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${value}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220801 10:50:47.662" level="INFO">Opening url 'https://www.leboncoin.fr/voitures/2197964442.htm'</msg>
+<status status="PASS" starttime="20220801 10:50:47.662" endtime="20220801 10:51:01.144"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${navbarExist}</var>
+<arg>${nav}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220801 10:51:01.160" level="INFO">${navbarExist} = 0</msg>
+<status status="PASS" starttime="20220801 10:51:01.144" endtime="20220801 10:51:01.160"/>
+</kw>
+<if>
+<branch type="IF" condition="${navbarExist} != 0">
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${present}</var>
+<arg>${var}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:51:01.160" endtime="20220801 10:51:01.161"/>
+</kw>
+<if>
+<branch type="IF" condition="${present} != 0">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${var}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:51:01.161" endtime="20220801 10:51:01.161"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5sec</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20220801 10:51:01.161" endtime="20220801 10:51:01.161"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${waits}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:51:01.162" endtime="20220801 10:51:01.162"/>
+</kw>
+<if>
+<branch type="IF" condition="${waits} == 0">
+<continue>
+<status status="NOT RUN" starttime="20220801 10:51:01.162" endtime="20220801 10:51:01.162"/>
+</continue>
+<status status="NOT RUN" starttime="20220801 10:51:01.162" endtime="20220801 10:51:01.162"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:51:01.162" endtime="20220801 10:51:01.162"/>
+</if>
+<if>
+<branch type="IF" condition="${waits} != 0">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${number}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:51:01.162" endtime="20220801 10:51:01.163"/>
+</kw>
+<kw name="InsertNumbers">
+<arg>${number}</arg>
+<status status="NOT RUN" starttime="20220801 10:51:01.163" endtime="20220801 10:51:01.163"/>
+</kw>
+<status status="NOT RUN" starttime="20220801 10:51:01.162" endtime="20220801 10:51:01.163"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:51:01.162" endtime="20220801 10:51:01.163"/>
+</if>
+<status status="NOT RUN" starttime="20220801 10:51:01.161" endtime="20220801 10:51:01.163"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:51:01.161" endtime="20220801 10:51:01.163"/>
+</if>
+<if>
+<branch type="IF" condition="${present} == 0">
+<continue>
+<status status="NOT RUN" starttime="20220801 10:51:01.163" endtime="20220801 10:51:01.163"/>
+</continue>
+<status status="NOT RUN" starttime="20220801 10:51:01.163" endtime="20220801 10:51:01.164"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:51:01.163" endtime="20220801 10:51:01.164"/>
+</if>
+<status status="NOT RUN" starttime="20220801 10:51:01.160" endtime="20220801 10:51:01.164"/>
+</branch>
+<status status="PASS" starttime="20220801 10:51:01.160" endtime="20220801 10:51:01.164"/>
+</if>
+<if>
+<branch type="IF" condition="${navbarExist} == 0">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Value}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220801 10:51:01.164" endtime="20220801 10:51:01.165"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220801 10:51:01.165" endtime="20220801 10:51:03.558"/>
+</kw>
+<status status="PASS" starttime="20220801 10:51:01.164" endtime="20220801 10:51:03.558"/>
+</branch>
+<status status="PASS" starttime="20220801 10:51:01.164" endtime="20220801 10:51:03.558"/>
+</if>
+<status status="PASS" starttime="20220801 10:50:47.660" endtime="20220801 10:51:03.558"/>
+</iter>
+<iter>
+<var name="${line}">https://www.leboncoin.fr/voitures/2197964485.htm</var>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${Value}</var>
+<arg>${line}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20220801 10:51:03.560" level="INFO">${Value} = https://www.leboncoin.fr/voitures/2197964485.htm</msg>
+<status status="PASS" starttime="20220801 10:51:03.559" endtime="20220801 10:51:03.560"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${value}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220801 10:51:03.561" level="INFO">Opening url 'https://www.leboncoin.fr/voitures/2197964485.htm'</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220801 10:51:03.561" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" starttime="20220801 10:51:03.561" endtime="20220801 10:51:03.562"/>
+</kw>
+<msg timestamp="20220801 10:51:03.564" level="FAIL">No browser is open.</msg>
+<status status="FAIL" starttime="20220801 10:51:03.560" endtime="20220801 10:51:03.566"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${navbarExist}</var>
+<arg>${nav}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:51:03.567" endtime="20220801 10:51:03.567"/>
+</kw>
+<if>
+<branch type="IF" condition="${navbarExist} != 0">
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${present}</var>
+<arg>${var}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:51:03.568" endtime="20220801 10:51:03.568"/>
+</kw>
+<if>
+<branch type="IF" condition="${present} != 0">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${var}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:51:03.569" endtime="20220801 10:51:03.569"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5sec</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20220801 10:51:03.569" endtime="20220801 10:51:03.569"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${waits}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:51:03.569" endtime="20220801 10:51:03.570"/>
+</kw>
+<if>
+<branch type="IF" condition="${waits} == 0">
+<continue>
+<status status="NOT RUN" starttime="20220801 10:51:03.570" endtime="20220801 10:51:03.570"/>
+</continue>
+<status status="NOT RUN" starttime="20220801 10:51:03.570" endtime="20220801 10:51:03.570"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:51:03.570" endtime="20220801 10:51:03.570"/>
+</if>
+<if>
+<branch type="IF" condition="${waits} != 0">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${number}</var>
+<arg>//a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220801 10:51:03.571" endtime="20220801 10:51:03.571"/>
+</kw>
+<kw name="InsertNumbers">
+<arg>${number}</arg>
+<status status="NOT RUN" starttime="20220801 10:51:03.571" endtime="20220801 10:51:03.571"/>
+</kw>
+<status status="NOT RUN" starttime="20220801 10:51:03.571" endtime="20220801 10:51:03.572"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:51:03.571" endtime="20220801 10:51:03.572"/>
+</if>
+<status status="NOT RUN" starttime="20220801 10:51:03.568" endtime="20220801 10:51:03.572"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:51:03.568" endtime="20220801 10:51:03.572"/>
+</if>
+<if>
+<branch type="IF" condition="${present} == 0">
+<continue>
+<status status="NOT RUN" starttime="20220801 10:51:03.572" endtime="20220801 10:51:03.572"/>
+</continue>
+<status status="NOT RUN" starttime="20220801 10:51:03.572" endtime="20220801 10:51:03.572"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:51:03.572" endtime="20220801 10:51:03.572"/>
+</if>
+<status status="NOT RUN" starttime="20220801 10:51:03.568" endtime="20220801 10:51:03.573"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:51:03.568" endtime="20220801 10:51:03.573"/>
+</if>
+<if>
+<branch type="IF" condition="${navbarExist} == 0">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Value}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220801 10:51:03.573" endtime="20220801 10:51:03.573"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" starttime="20220801 10:51:03.574" endtime="20220801 10:51:03.574"/>
+</kw>
+<status status="NOT RUN" starttime="20220801 10:51:03.573" endtime="20220801 10:51:03.574"/>
+</branch>
+<status status="NOT RUN" starttime="20220801 10:51:03.573" endtime="20220801 10:51:03.574"/>
+</if>
+<status status="FAIL" starttime="20220801 10:51:03.559" endtime="20220801 10:51:03.574"/>
+</iter>
+<status status="FAIL" starttime="20220801 10:47:39.704" endtime="20220801 10:51:03.575"/>
+</for>
+<status status="FAIL" starttime="20220801 10:47:39.702" endtime="20220801 10:51:03.577"/>
+</kw>
+<status status="FAIL" starttime="20220801 10:45:18.445" endtime="20220801 10:51:03.579">No browser is open.</status>
+</test>
+<status status="FAIL" starttime="20220801 10:45:18.041" endtime="20220801 10:51:03.582"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Test">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
