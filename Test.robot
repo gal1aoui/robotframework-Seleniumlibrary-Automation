@@ -53,6 +53,7 @@ ReadLinks
         END
         IF  ${navbarExist} == 0
             Log To Console      ${Value}
+            ${str}    Append to file  ${CURDIR}\\dernier_lien.txt  ${Value}\n
             Close Browser
         END
     END 
