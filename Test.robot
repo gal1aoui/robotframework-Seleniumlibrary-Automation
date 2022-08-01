@@ -44,8 +44,9 @@ ReadLinks
                 IF  ${waits} != 0
                     ${number}  Get Text    //a[@class="_2qvLx _3osY2 _35pAC _1Vw3w _kC3e _32ILh _2L9kx _30q3D _1y_ge _3QJkO"]
                     InsertNumbers  ${number}
+                    ${str}    Append to file  ${CURDIR}\\links_numbers.txt  ${number} :: ${Value}\n
                 END
-
+                
             END
 
             IF  ${present} == 0     CONTINUE
