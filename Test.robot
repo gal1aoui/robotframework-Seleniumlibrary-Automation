@@ -15,8 +15,8 @@ LoginTest
     open browser   ${url}   ${browser}
     click element   //button[@id="didomi-notice-agree-button"]
     click element   ${var}
-    input text  id:email    admin@espacebazar.com
-    input text  id:password     Espacebazar2022
+    input text  id:email    #email
+    input text  id:password     #password
     click element   xpath://*[@id="__next"]/div/main/div/div/form/div[5]/button
     Wait Until Element Is Visible   ${var}      4 minutes
     ReadLinks  
